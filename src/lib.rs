@@ -95,7 +95,6 @@
 #![cfg_attr(docsrs, feature(doc_cfg))]
 #![cfg_attr(test, allow(clippy::float_cmp))]
 
-use async_trait::async_trait;
 use axum_core::{
     extract::{FromRef, FromRequestParts},
     response::{IntoResponse, IntoResponseParts, Response, ResponseParts},
@@ -167,7 +166,6 @@ impl Flash {
     }
 }
 
-#[async_trait]
 impl<S> FromRequestParts<S> for Flash
 where
     S: Send + Sync,
@@ -351,7 +349,6 @@ impl<'a> IntoIterator for &'a IncomingFlashes {
     }
 }
 
-#[async_trait]
 impl<S> FromRequestParts<S> for IncomingFlashes
 where
     S: Send + Sync,
